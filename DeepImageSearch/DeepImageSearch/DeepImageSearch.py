@@ -117,7 +117,7 @@ class SearchImage:
         query_vector = fe.extract(img)
         return query_vector
     def plot_similar_images(self,image_path:str):
-        #self.image_path = image_path
+        self.image_path = image_path
         query_vector = self.get_query_vector(self.image_path)
         img_list = list(self.search_by_vector(query_vector,24).values())
         print(img_list)
@@ -152,3 +152,13 @@ def change_name_to_n():
     for file in os.listdir(dir):
         filename = os.fsdecode(file)
         print(file)
+
+        
+def extract_dict_similar(similitud_factor:int):
+    new_df = pd.DataFrame()
+    for i in range(0,(len(image_list))):
+
+        imagenes = SearchImage().get_similar_images(image_list[i],similitud_factor)
+        df = pd.DataFrame(list(imagenes.items()),columns = ['index','path']).transpose()
+        new_df = pd.concat([new_df, df])
+    return new_df

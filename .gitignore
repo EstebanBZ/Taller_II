@@ -1,0 +1,4 @@
+#ignora el dataset descomprimido
+*.jpg
+*.zip
+DeepImageSearch\DeepImageSearch\__pycache__
