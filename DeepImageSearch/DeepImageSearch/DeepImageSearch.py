@@ -120,8 +120,6 @@ class SearchImage:
         self.image_path = image_path
         query_vector = self.get_query_vector(self.image_path)
         img_list = list(self.search_by_vector(query_vector,24).values())
-        print(img_list)
-        print('joña')
         # Visualize the result
         axes=[]
         fig=plt.figure(figsize=(20,15))
